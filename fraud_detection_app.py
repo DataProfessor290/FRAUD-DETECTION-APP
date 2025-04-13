@@ -12,6 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from imblearn.under_sampling import RandomUnderSampler
 import numpy as np
+import gdown
 
 # Load data
 @st.cache_data
