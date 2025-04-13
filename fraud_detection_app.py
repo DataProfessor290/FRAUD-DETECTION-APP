@@ -16,6 +16,11 @@ import numpy as np
 # Load data
 @st.cache_data
 def load_data():
+    # Download only if the file doesn't already exist
+    if not os.path.exists("Dataset.csv"):
+        url = 'https://drive.google.com/uc?id=1sn7m5d98MRTzStiOyKNfQPWvbVURBZS8'  # <-- your file ID
+        gdown.download(url, "Dataset.csv", quiet=False)
+
     df = pd.read_csv("Dataset.csv")
     df.columns = df.columns.str.lower()
     df = df[['type', 'amount', 'oldbalanceorg', 'newbalanceorig', 'isfraud']]
